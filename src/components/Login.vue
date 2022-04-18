@@ -59,7 +59,7 @@ export default {
             this.$http.post('/user/login', this.loginForm).then(res => {
                 if (res.data.code !== 200) return this.$message.error('登录失败');
                 this.$message.success('登录成功');
-                window.sessionStorage.setItem('token', res.headers.token);
+                window.sessionStorage.setItem('token', res.headers.authorization);
                 this.$router.push('/home');
             }).catch(err => {
                 console.log(err);
